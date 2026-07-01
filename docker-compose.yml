@@ -1,6 +1,21 @@
 version: '3.8'
 
 services:
+  mongodb:
+    image: mongo:7.0
+    container_name: vitacure-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER:-admin}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD:-password}
+      - MONGO_INITDB_DATABASE=vitacure
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - vitacure-network
+
   backend:
     build:
       context: ./backend
@@ -12,23 +27,12 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=5000
-      - MONGODB_URI=${MONGODB_URI}
-      - JWT_SECRET=${JWT_SECRET}
+      - MONGODB_URI=mongodb://${MONGO_USER:-admin}:${MONGO_PASSWORD:-password}@mongodb:27017/vitacure?authSource=admin
+      - JWT_SECRET=${JWT_SECRET:-supersecretkey}
     depends_on:
       - mongodb
-
-  mongodb:
-    image: mongo:7.0
-    container_name: vitacure-mongodb
-    restart: always
-    ports:
-      - "27017:27017"
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
-      - MONGO_INITDB_DATABASE=vitacure
-    volumes:
-      - mongodb_data:/data/db
+    networks:
+      - vitacure-network
 
   frontend:
     build:
@@ -39,9 +43,15 @@ services:
     ports:
       - "80:80"
     environment:
-      - VITE_API_URL=${VITE_API_URL}
+      - VITE_API_URL=http://backend:5000/api
     depends_on:
       - backend
+    networks:
+      - vitacure-network
 
 volumes:
   mongodb_data:
+
+networks:
+  vitacure-network:
+    driver: bridge
