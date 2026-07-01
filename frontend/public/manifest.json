@@ -1,0 +1,33 @@
+{
+  "name": "VitaCure - Natural Medication",
+  "short_name": "VitaCure",
+  "description": "Return to nature. Discover 100% natural remedies ranked by active potency.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f7f2",
+  "theme_color": "#4CAF50",
+  "icons": [
+    {
+      "src": "/logos/vitacure-icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logos/vitacure-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshots/home-mobile.png",
+      "sizes": "375x812",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["health", "shopping", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr"
+}
