@@ -1,0 +1,11 @@
+<svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <rect x="5" y="8" width="20" height="20" rx="4" fill="#FFB300" opacity="0.2"/>
+  <rect x="7" y="10" width="16" height="16" rx="2" fill="none" stroke="#F57C00" stroke-width="1.5"/>
+  <circle cx="15" cy="18" r="4" fill="#FFA000" opacity="0.3"/>
+  <text x="32" y="25" font-family="'Nunito', sans-serif" font-size="15" font-weight="700" fill="#E65100">
+    Golden Roots
+  </text>
+  <text x="32" y="35" font-family="'Nunito', sans-serif" font-size="8" font-weight="600" fill="#FF8F00" letter-spacing="1">
+    🌱 CO.
+  </text>
+</svg>
