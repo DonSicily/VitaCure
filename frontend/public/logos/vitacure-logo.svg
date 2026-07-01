@@ -1,35 +1,17 @@
 <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-  <!-- Leaf Icon -->
   <defs>
     <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#2E7D32;stop-opacity:1" />
     </linearGradient>
   </defs>
-  
-  <!-- Leaf shape -->
-  <path d="M25 35 C15 35 5 28 5 18 C5 8 15 2 25 2 C35 2 45 8 45 18 C45 28 35 35 25 35 Z" 
-        fill="url(#leafGrad)" opacity="0.9"/>
+  <path d="M25 35 C15 35 5 28 5 18 C5 8 15 2 25 2 C35 2 45 8 45 18 C45 28 35 35 25 35 Z" fill="url(#leafGrad)" opacity="0.9"/>
   <path d="M25 35 L25 2" stroke="#1B5E20" stroke-width="2" opacity="0.3"/>
   <path d="M25 18 L35 10" stroke="#1B5E20" stroke-width="1.5" opacity="0.3"/>
   <path d="M25 18 L15 10" stroke="#1B5E20" stroke-width="1.5" opacity="0.3"/>
   <path d="M25 18 L38 20" stroke="#1B5E20" stroke-width="1.5" opacity="0.3"/>
   <path d="M25 18 L12 20" stroke="#1B5E20" stroke-width="1.5" opacity="0.3"/>
-  
-  <!-- Text -->
-  <text x="55" y="28" font-family="'Nunito', 'Quicksand', sans-serif" font-size="32" font-weight="800" fill="#2E7D32">
-    Vita
-  </text>
-  <text x="98" y="28" font-family="'Nunito', 'Quicksand', sans-serif" font-size="32" font-weight="400" fill="#4CAF50">
-    Cure
-  </text>
-  
-  <!-- Tagline -->
-  <text x="55" y="48" font-family="'Nunito', sans-serif" font-size="10" font-weight="600" fill="#8D6E63" letter-spacing="1.5">
-    NATURAL MEDICATION
-  </text>
-  
-  <!-- Small leaf accent -->
-  <path d="M185 42 C190 42 195 38 195 34 C195 30 190 26 185 26 C180 26 175 30 175 34 C175 38 180 42 185 42 Z" 
-        fill="#81C784" opacity="0.5"/>
+  <text x="55" y="28" font-family="'Nunito','Quicksand',sans-serif" font-size="32" font-weight="800" fill="#2E7D32">Vita</text>
+  <text x="98" y="28" font-family="'Nunito','Quicksand',sans-serif" font-size="32" font-weight="400" fill="#4CAF50">Cure</text>
+  <text x="55" y="48" font-family="'Nunito',sans-serif" font-size="10" font-weight="600" fill="#8D6E63" letter-spacing="1.5">NATURAL MEDICATION</text>
 </svg>
