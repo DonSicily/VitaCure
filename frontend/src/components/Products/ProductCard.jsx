@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCartIcon, StarIcon } from '@heroicons/react/24/solid';
 import ActivePercentageBadge from '../UI/ActivePercentageBadge';
@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
+  const [imageError, setImageError] = useState(false);
   
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -15,26 +16,38 @@ const ProductCard = ({ product }) => {
     toast.success(`Added ${product.name} to your basket`);
   };
 
+  // Get product image with fallback
+  const getProductImage = () => {
+    if (product.images && product.images.length > 0 && !imageError) {
+      return `/images/products/${product.images[0]}`;
+    }
+    return '/images/placeholders/product-placeholder.svg';
+  };
+
   return (
     <Link to={`/product/${product.slug}`} className="block">
       <div className="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-cream-200">
         {/* Image */}
         <div className="relative h-56 bg-cream-100 overflow-hidden">
+          <img 
+            src={getProductImage()}
+            alt={product.name}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            onError={() => setImageError(true)}
+            loading="lazy"
+          />
+          
+          {/* Overlay Badge */}
           <div className="absolute top-3 right-3 z-10">
             <ActivePercentageBadge percentage={product.activePercentage} />
           </div>
-          {product.images && product.images[0] ? (
-            <img 
-              src={`/images/${product.images[0]}`} 
-              alt={product.name}
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/400x300/8FBC8F/FFFFFF?text=Natural+Remedy';
-              }}
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-sage-100 to-cream-200">
-              <span className="text-sage-400 text-4xl">🌿</span>
+          
+          {/* Brand watermark */}
+          {product.profile?.maker?.name && (
+            <div className="absolute bottom-3 left-3 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1">
+              <span className="text-white text-xs font-medium opacity-80">
+                {product.profile.maker.name}
+              </span>
             </div>
           )}
         </div>
