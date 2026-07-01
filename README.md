@@ -18,11 +18,4 @@ Return to natural medicine. **Health is Wealth.** VitaCure connects users with 1
 - **Database**: MongoDB
 - **Deployment**: Railway
 
-## Quick Start
-
-### Local Development
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/yourusername/vitacure.git
-cd vitacure
+## Project Structure
