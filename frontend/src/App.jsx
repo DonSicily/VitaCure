@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
 import ProductDetail from './pages/ProductDetail';
 import Checkout from './pages/Checkout';
+import OrderConfirmation from './pages/OrderConfirmation';
 
 // Layout Components
 import Header from './components/Layout/Header';
@@ -25,6 +26,7 @@ function App() {
               <Route path="/search" element={<SearchResults />} />
               <Route path="/product/:slug" element={<ProductDetail />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/order/:id" element={<OrderConfirmation />} />
             </Routes>
           </main>
           <Footer />
